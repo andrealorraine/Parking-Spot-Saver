@@ -1,0 +1,129 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+
+  --color-signal: var(--signal);
+  --color-signal-foreground: var(--signal-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+/* Concrete grey, charcoal, safety yellow, signal blue */
+:root {
+  color-scheme: light;
+  --background: oklch(0.9 0.004 250);
+  --foreground: oklch(0.24 0.008 250);
+  --card: oklch(0.965 0.003 250);
+  --card-foreground: oklch(0.24 0.008 250);
+  --popover: oklch(0.965 0.003 250);
+  --popover-foreground: oklch(0.24 0.008 250);
+  --primary: oklch(0.86 0.17 92);
+  --primary-foreground: oklch(0.22 0.01 250);
+  --secondary: oklch(0.24 0.008 250);
+  --secondary-foreground: oklch(0.97 0 0);
+  --muted: oklch(0.85 0.005 250);
+  --muted-foreground: oklch(0.42 0.01 250);
+  --accent: oklch(0.85 0.005 250);
+  --accent-foreground: oklch(0.24 0.008 250);
+  --signal: oklch(0.5 0.17 255);
+  --signal-foreground: oklch(0.98 0 0);
+  --warning: oklch(0.86 0.17 92);
+  --warning-foreground: oklch(0.22 0.01 250);
+  --destructive: oklch(0.55 0.21 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.78 0.006 250);
+  --input: oklch(0.74 0.008 250);
+  --ring: oklch(0.5 0.17 255);
+  --radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --background: oklch(0.2 0.006 250);
+    --foreground: oklch(0.94 0.003 250);
+    --card: oklch(0.26 0.007 250);
+    --card-foreground: oklch(0.94 0.003 250);
+    --popover: oklch(0.26 0.007 250);
+    --popover-foreground: oklch(0.94 0.003 250);
+    --primary: oklch(0.86 0.17 92);
+    --primary-foreground: oklch(0.2 0.01 250);
+    --secondary: oklch(0.94 0.003 250);
+    --secondary-foreground: oklch(0.2 0.006 250);
+    --muted: oklch(0.31 0.007 250);
+    --muted-foreground: oklch(0.72 0.008 250);
+    --accent: oklch(0.31 0.007 250);
+    --accent-foreground: oklch(0.94 0.003 250);
+    --signal: oklch(0.74 0.13 250);
+    --signal-foreground: oklch(0.18 0.02 250);
+    --warning: oklch(0.86 0.17 92);
+    --warning-foreground: oklch(0.2 0.01 250);
+    --destructive: oklch(0.64 0.2 25);
+    --destructive-foreground: oklch(0.98 0 0);
+    --border: oklch(0.36 0.008 250);
+    --input: oklch(0.42 0.008 250);
+    --ring: oklch(0.74 0.13 250);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+@utility px-safe {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* Hazard stripe accent used on the sign panel */
+@utility hazard-stripe {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--primary) 0 12px,
+    var(--primary-foreground) 12px 24px
+  );
+}
