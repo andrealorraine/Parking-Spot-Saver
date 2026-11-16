@@ -40,8 +40,8 @@ export function CarMap({ spot }: { spot: ParkingSpot }) {
   if (!MAPS_KEY) {
     return (
       <MapFallback
-        title="Map not set up"
-        body="Add NEXT_PUBLIC_GOOGLE_MAPS_KEY to show the map. Your level, zone, and directions still work below."
+        title="Find your car"
+        body="Use your level, zone, and photo below. Tap “Walk to my car” to open walking directions in Google Maps."
       />
     )
   }
