@@ -2,6 +2,7 @@
 <img width="938" height="603" alt="image" src="https://github.com/user-attachments/assets/0abd40ce-d979-4260-957f-e800e38876ae" />
 
 
+
 A mobile-first, installable PWA that remembers where you parked at the mall and how long you have been there.
 
 ## Environment variables
